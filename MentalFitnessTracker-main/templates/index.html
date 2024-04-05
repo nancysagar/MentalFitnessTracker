@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Fitness Tracker</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("https://www.freecodecamp.org/news/content/images/2021/06/w-qjCHPZbeXCQ-unsplash.jpg");
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Form styles */
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-top: 5px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fadeIn {
+            animation: fadeIn 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+    </div>
+    <div class="container">
+        <h1>Mental Fitness Tracker</h1>
+        <form action="/predict" method="post" onsubmit="return validateForm()" class="fadeIn">
+            <label for="query1">Country:</label>
+            <input type="text" name="query1" required>
+
+            <label for="query2">Year:</label>
+            <input type="number" name="query2" required>
+
+            <label for="query3">Schizophrenia:</label>
+            <input type="number" name="query3" required>
+
+            <label for="query4">Bipolar Disorder:</label>
+            <input type="number" name="query4" required>
+
+            <label for="query5">Eating Disorder:</label>
+            <input type="number" name="query5" required>
+
+            <label for="query6">Anxiety:</label>
+            <input type="number" name="query6" required>
+
+            <label for="query7">Drug Usage:</label>
+            <input type="number" name="query7" required>
+
+            <label for="query8">Depression:</label>
+            <input type="number" name="query8" required>
+
+            <label for="query9">Alcohol:</label>
+            <input type="number" name="query9" required>
+
+            <!-- Add more input fields for additional features as needed -->
+
+            <input type="submit" value="Predict">
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            // Basic form validation example (you can add more checks as needed)
+            var feature1Input = document.getElementsByName('query1')[0];
+            var feature2Input = document.getElementsByName('query2')[0];
+            var feature3Input = document.getElementsByName('query3')[0];
+            var feature4Input = document.getElementsByName('query4')[0];
+            var feature5Input = document.getElementsByName('query5')[0];
+            var feature6Input = document.getElementsByName('query6')[0];
+            var feature7Input = document.getElementsByName('query7')[0];
+            var feature8Input = document.getElementsByName('query8')[0];
+            var feature9Input = document.getElementsByName('query9')[0];
+
+            if (feature1Input.value.trim() === '') {
+                alert('Please enter your Country.');
+                return false;
+            }
+
+            if (isNaN(feature2Input.value) || feature2Input.value.trim() === '') {
+                alert('Please enter a valid number for Year.');
+                return false;
+            }
+
+            if (isNaN(feature3Input.value) || feature3Input.value.trim() === '') {
+                alert('Please enter a valid number for Schizophrenia.');
+                return false;
+            }
+
+            if (isNaN(feature4Input.value) || feature4Input.value.trim() === '') {
+                alert('Please enter a valid number for Bipolar Disorder.');
+                return false;
+            }
+
+            if (isNaN(feature5Input.value) || feature5Input.value.trim() === '') {
+                alert('Please enter a valid number for Eating Disorder.');
+                return false;
+            }
+
+            if (isNaN(feature6Input.value) || feature6Input.value.trim() === '') {
+                alert('Please enter a valid number for Anxiety.');
+                return false;
+            }
+
+            if (isNaN(feature7Input.value) || feature7Input.value.trim() === '') {
+                alert('Please enter a valid number for Drug Usage.');
+                return false;
+            }
+
+            if (isNaN(feature8Input.value) || feature8Input.value.trim() === '') {
+                alert('Please enter a valid number for Depression.');
+                return false;
+            }
+
+            if (isNaN(feature9Input.value) || feature9Input.value.trim() === '') {
+                alert('Please enter a valid number for Alcohol.');
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>
